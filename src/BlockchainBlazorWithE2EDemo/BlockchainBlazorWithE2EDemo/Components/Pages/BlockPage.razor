@@ -1,0 +1,47 @@
+@page "/block"
+@using BlockchainBlazorWithE2EDemo.Models
+
+<div class="block-wrapper">
+    <h3>Block</h3>
+    @if(_block is not null)
+    {
+        <div class="panel @(_isValidBlock ? "valid" : "invalid")">
+
+            <div class="form-row">
+                <label>Nonce:</label>
+                <input @bind="_block.Nonce" />
+            </div>
+
+            <div class="form-row">
+                <label>Data:</label>
+                <textarea @bind="_block.Data"></textarea>
+            </div>
+
+            <div class="form-row">
+                <label>Prev:</label>
+                <input readonly value="@_block.PreviousHashHexString" />
+            </div>
+
+            <div class="form-row">
+                <label>Hash:</label>
+                <input readonly value="@_block.HashHexString" />
+            </div>
+
+            <div class="form-actions">
+                <button @onclick="Mine">Mine</button>
+            </div>
+        </div>
+    }
+</div>
+
+<style>
+.block-wrapper { margin-bottom: 1.25rem; }
+.panel { padding: 1rem; border-radius: 4px; background: #e8f5e9; }
+.panel.invalid { background: #fdecea; }
+.form-row { display:flex; gap:0.75rem; align-items: center; margin-bottom:0.75rem; }
+.form-row label { width: 4rem; font-weight:600; }
+.form-row input[type="text"], .form-row input, textarea { flex:1; padding:0.5rem; border-radius:4px; border:1px solid #ccc; }
+textarea { height: 8rem; resize: vertical; }
+.form-actions { margin-top:0.5rem; }
+.small { margin-top:0.5rem; color:#555; font-size:0.9rem; }
+</style>
