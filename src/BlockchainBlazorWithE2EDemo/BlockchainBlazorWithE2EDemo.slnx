@@ -1,3 +1,4 @@
 <Solution>
   <Project Path="BlockchainBlazorWithE2EDemo/BlockchainBlazorWithE2EDemo.csproj" />
+  <Project Path="PlaywrightTestsXUnit/PlaywrightTestsXUnit.csproj" Id="722e8968-e879-4b8b-b219-56d2cfe9abf6" />
 </Solution>
