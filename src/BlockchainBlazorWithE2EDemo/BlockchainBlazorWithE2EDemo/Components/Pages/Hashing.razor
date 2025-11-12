@@ -1,0 +1,50 @@
+﻿@page "/hashing"
+@rendermode RenderMode.InteractiveServer
+@using System.Security.Cryptography
+@using System.Text
+
+<PageTitle>Hashing</PageTitle>
+
+<div class="container mt-4">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="mb-4">SHA256 Hash</h2>
+
+            <div class="mb-3 row">
+                <label class="col-sm-2 col-form-label fw-bold">Data:</label>
+                <div class="col-sm-10">
+                    <textarea class="form-control" rows="6" @oninput="OnInputChanged" placeholder="Type data here..."></textarea>
+                </div>
+            </div>
+
+            <div class="mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label fw-bold">Hash SHA 256:</label>
+                <div class="col-sm-10">
+                    <input class="form-control text-monospace" value="@ComputeHashSHA256(_inputText)" readonly />
+                </div>
+            </div>
+
+            <div class="mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label fw-bold">Hash SHA 512:</label>
+                <div class="col-sm-10">
+                    <input class="form-control text-monospace" value="@ComputeHashSHA512(_inputText)" readonly />
+                </div>
+            </div>
+
+            <div class="mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label fw-bold">Hash SHA3 256:</label>
+                <div class="col-sm-10">
+                    <input class="form-control text-monospace" value="@ComputeHashSHA3_256(_inputText)" readonly />
+                </div>
+            </div>
+
+            <div class="mb-3 row align-items-center">
+                <label class="col-sm-2 col-form-label fw-bold">Hash SHA3 512:</label>
+                <div class="col-sm-10">
+                    <input class="form-control text-monospace" value="@ComputeHashSHA3_512(_inputText)" readonly />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

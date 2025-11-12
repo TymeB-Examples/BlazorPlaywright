@@ -1,0 +1,27 @@
+@page "/blockchain"
+@using BlockchainBlazorWithE2EDemo.Models
+@using BlockchainBlazorWithE2EDemo.Components.Pages
+
+<h2>Blockchain</h2>
+
+<div class="controls">
+    <button @onclick="AddBlock">Add Block</button>
+    <button @onclick="CorruptRandom">Corrupt Random Block</button>
+    <span class="status">Chain valid: @(IsChainValid ? "YES" : "NO")</span>
+</div>
+
+<div class="chain">
+    @for (int i = 0; i < DisplayBlocks.Count; i++)
+    {
+        <div class="column">
+            <Block Block="DisplayBlocks[i]" PreviousHash="GetPreviousHash(i)" Index="@(i)" Difficulty="16" />
+        </div>
+    }
+</div>
+
+<style>
+.chain { display:flex; gap:1rem; flex-wrap:wrap; }
+.column { flex: 1 1 18rem; min-width: 18rem; }
+.controls { margin-bottom:1rem; display:flex; gap:0.75rem; align-items:center; }
+.status { margin-left:1rem; font-weight:600; }
+</style>
